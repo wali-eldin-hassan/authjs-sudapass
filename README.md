@@ -1,7 +1,12 @@
 # next-auth-sudapass
 
-[SudaPass](https://sudapass.gov.sd) — Sudan's national identity provider — as a
-[NextAuth v5](https://authjs.dev) provider.
+[SudaPass](https://sudapass.gov.sd) — Sudan's national identity provider — as an
+[Auth.js](https://authjs.dev) provider.
+
+Works anywhere Auth.js runs: **Next.js** (`next-auth` v5), **Express**
+(`@auth/express`), **SvelteKit** (`@auth/sveltekit`), SolidStart, Qwik. The
+provider is a plain configuration object, so the only difference between
+frameworks is where you pass it.
 
 SudaPass registers applications as **public clients**: there is no client secret
 to keep, and the code exchange is protected by PKCE instead.
@@ -162,9 +167,35 @@ events: {
 }
 ```
 
+## Other frameworks
+
+```ts
+// Express
+import { ExpressAuth } from "@auth/express";
+import SudapassProvider from "next-auth-sudapass";
+
+app.use("/auth/*", ExpressAuth({ providers: [SudapassProvider({ clientId, issuer })] }));
+```
+
+```ts
+// SvelteKit
+import { SvelteKitAuth } from "@auth/sveltekit";
+import SudapassProvider from "next-auth-sudapass";
+
+export const { handle } = SvelteKitAuth({ providers: [SudapassProvider({ clientId, issuer })] });
+```
+
+The callback path differs per framework — register with SudaPass whatever your
+framework serves, e.g. `/auth/callback/sudapass` for Express rather than
+`/api/auth/callback/sudapass` for Next.js.
+
+NestJS has no Auth.js adapter of its own; mount `@auth/express` as middleware.
+A Passport or `openid-client` setup does not use this package.
+
 ## Requirements
 
-- `next-auth@5` (beta) as a peer dependency
+- `@auth/core` 0.34 or newer, which every Auth.js framework package depends on
+  (`next-auth` v5 included, so Next.js users already have it)
 - Node 18 or newer
 
 ## Licence

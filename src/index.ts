@@ -1,4 +1,8 @@
-import type { OAuthConfig } from "next-auth/providers";
+// The type lives in @auth/core, which every Auth.js framework package builds
+// on -- next-auth for Next.js, @auth/express, @auth/sveltekit and the rest --
+// so importing it here rather than from next-auth keeps this usable by all of
+// them.
+import type { OAuthConfig } from "@auth/core/providers";
 
 /**
  * The claims SudaPass returns from `/oauth/me`.
@@ -112,7 +116,10 @@ function absolutePicture(picture: string | undefined, baseUrl: string): string |
 }
 
 /**
- * SudaPass as a NextAuth v5 provider.
+ * SudaPass as an Auth.js provider.
+ *
+ * Works anywhere Auth.js runs: Next.js (next-auth v5), Express
+ * (\@auth/express), SvelteKit (\@auth/sveltekit), and the rest.
  *
  * SudaPass registers applications as public clients, so there is no secret to
  * keep: the exchange is protected by PKCE instead.

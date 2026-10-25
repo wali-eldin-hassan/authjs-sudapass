@@ -15,6 +15,11 @@ First release meant for use outside the project it was written for.
 - **`baseUrl` is optional** and defaults to `issuer`. It now only serves
   explicit endpoints and relative picture paths.
 
+- **Not tied to Next.js.** The provider type comes from `@auth/core` rather
+  than `next-auth`, and `@auth/core` is the peer dependency, so the package
+  works with `@auth/express`, `@auth/sveltekit` and the rest. Next.js users
+  need no change: `next-auth` depends on `@auth/core` already.
+
 ### Added
 
 - `profile` option, to replace the claim mapping without forking.
