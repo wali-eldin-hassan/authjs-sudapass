@@ -200,4 +200,7 @@ A Passport or `openid-client` setup does not use this package.
 
 ## Licence
 
-MIT
+[MIT](LICENSE) © Wali Eldin Hassan
+
+Built for [SudaPass](https://sudapass.gov.sd), Sudan's national identity
+provider. Not affiliated with or endorsed by SudaPass or NCTR.
