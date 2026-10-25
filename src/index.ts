@@ -129,7 +129,7 @@ function absolutePicture(picture: string | undefined, baseUrl: string): string |
  * SudapassProvider({
  *   clientId: process.env.SUDAPASS_CLIENT_ID!,
  *   issuer: process.env.SUDAPASS_ISSUER!,
-  * })
+ * })
  */
 export default function SudapassProvider(
   config: SudapassConfig,
