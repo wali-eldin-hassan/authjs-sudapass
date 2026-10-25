@@ -1,4 +1,4 @@
-# next-auth-sudapass
+# authjs-sudapass
 
 [SudaPass](https://sudapass.gov.sd) — Sudan's national identity provider — as an
 [Auth.js](https://authjs.dev) provider.
@@ -12,7 +12,7 @@ SudaPass registers applications as **public clients**: there is no client secret
 to keep, and the code exchange is protected by PKCE instead.
 
 ```bash
-npm install next-auth-sudapass
+npm install authjs-sudapass
 ```
 
 ## Usage
@@ -20,7 +20,7 @@ npm install next-auth-sudapass
 ```ts
 // auth.ts
 import NextAuth from "next-auth";
-import SudapassProvider from "next-auth-sudapass";
+import SudapassProvider from "authjs-sudapass";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
@@ -172,7 +172,7 @@ events: {
 ```ts
 // Express
 import { ExpressAuth } from "@auth/express";
-import SudapassProvider from "next-auth-sudapass";
+import SudapassProvider from "authjs-sudapass";
 
 app.use("/auth/*", ExpressAuth({ providers: [SudapassProvider({ clientId, issuer })] }));
 ```
@@ -180,7 +180,7 @@ app.use("/auth/*", ExpressAuth({ providers: [SudapassProvider({ clientId, issuer
 ```ts
 // SvelteKit
 import { SvelteKitAuth } from "@auth/sveltekit";
-import SudapassProvider from "next-auth-sudapass";
+import SudapassProvider from "authjs-sudapass";
 
 export const { handle } = SvelteKitAuth({ providers: [SudapassProvider({ clientId, issuer })] });
 ```

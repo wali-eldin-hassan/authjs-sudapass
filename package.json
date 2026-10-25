@@ -1,5 +1,5 @@
 {
-  "name": "next-auth-sudapass",
+  "name": "authjs-sudapass",
   "version": "0.3.0",
   "description": "SudaPass (Sudan national identity) OIDC provider for Auth.js / NextAuth v5",
   "license": "MIT",
@@ -54,12 +54,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wali-eldin-hassan/next-auth-sudapass.git"
+    "url": "git+https://github.com/wali-eldin-hassan/authjs-sudapass.git"
   },
   "bugs": {
-    "url": "https://github.com/wali-eldin-hassan/next-auth-sudapass/issues"
+    "url": "https://github.com/wali-eldin-hassan/authjs-sudapass/issues"
   },
-  "homepage": "https://github.com/wali-eldin-hassan/next-auth-sudapass#readme",
+  "homepage": "https://github.com/wali-eldin-hassan/authjs-sudapass#readme",
   "engines": {
     "node": ">=18"
   },
