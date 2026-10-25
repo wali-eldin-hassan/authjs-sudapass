@@ -1,5 +1,8 @@
 # authjs-sudapass
 
+[![npm](https://img.shields.io/npm/v/authjs-sudapass)](https://www.npmjs.com/package/authjs-sudapass)
+[![licence](https://img.shields.io/npm/l/authjs-sudapass)](LICENSE)
+
 [SudaPass](https://sudapass.gov.sd) — Sudan's national identity provider — as an
 [Auth.js](https://authjs.dev) provider.
 
