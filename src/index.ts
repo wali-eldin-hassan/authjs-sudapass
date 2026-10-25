@@ -66,10 +66,11 @@ export interface SudapassConfig {
   baseUrl?: string;
   /**
    * Scopes to request. SudaPass releases a claim only when its scope is asked
-   * for, so an application needing the national id must include it here, e.g.
-   * `"openid profile email phone national_id"`.
+   * for. The default covers sign-in and the national id, which is what most
+   * applications integrate with SudaPass for; narrow it where the client was
+   * not granted `national_id`, e.g. `"openid profile email"`.
    *
-   * @default "openid profile email phone"
+   * @default "openid profile email phone national_id"
    */
   scope?: string;
   /**
@@ -128,8 +129,7 @@ function absolutePicture(picture: string | undefined, baseUrl: string): string |
  * SudapassProvider({
  *   clientId: process.env.SUDAPASS_CLIENT_ID!,
  *   issuer: process.env.SUDAPASS_ISSUER!,
- *   scope: "openid profile email phone national_id",
- * })
+  * })
  */
 export default function SudapassProvider(
   config: SudapassConfig,
@@ -138,7 +138,7 @@ export default function SudapassProvider(
     clientId,
     issuer,
     baseUrl = issuer,
-    scope = "openid profile email phone",
+    scope = "openid profile email phone national_id",
     endpoints,
     profile: mapProfile,
     debug = false,

@@ -1,6 +1,6 @@
 {
   "name": "authjs-sudapass",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "SudaPass (Sudan national identity) OIDC provider for Auth.js / NextAuth v5",
   "license": "MIT",
   "type": "module",

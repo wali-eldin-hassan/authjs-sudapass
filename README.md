@@ -56,7 +56,7 @@ container's hostname and SudaPass will reject it.
 | `clientId` | yes | Issued by SudaPass when you register the application |
 | `issuer` | yes | Endpoints are discovered from `{issuer}/.well-known/openid-configuration` |
 | `baseUrl` | no | Host serving the OAuth endpoints and relative picture paths. Defaults to `issuer` |
-| `scope` | no | Defaults to `"openid profile email phone"` |
+| `scope` | no | Defaults to `"openid profile email phone national_id"` |
 | `endpoints` | no | Explicit endpoint URLs, for deployments where discovery is unreachable |
 | `profile` | no | Replace the claim mapping with your own |
 | `debug` | no | Warn when an expected claim is missing |
@@ -64,14 +64,18 @@ container's hostname and SudaPass will reject it.
 ### Scopes decide which claims you get
 
 SudaPass releases a claim only when its scope was requested. The default asks
-for `openid profile email phone`; an application that needs the national id has
-to ask for it:
+for `openid profile email phone national_id` — sign-in plus the national id,
+which is what most applications integrate with SudaPass for.
+
+A client is only granted the scopes its registration asked for, and requesting
+one it was not granted fails the authorization. Narrow the default where
+`national_id` was not approved:
 
 ```ts
 SudapassProvider({
   clientId: process.env.SUDAPASS_CLIENT_ID!,
   issuer: process.env.SUDAPASS_ISSUER!,
-  scope: "openid profile email phone national_id",
+  scope: "openid profile email",
 });
 ```
 

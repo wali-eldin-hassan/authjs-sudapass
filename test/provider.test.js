@@ -10,7 +10,7 @@ test("discovers endpoints from the issuer by default", () => {
   const provider = SudapassProvider(base);
   assert.equal(provider.issuer, "https://sudapass.example");
   assert.equal(provider.authorization.url, undefined, "no explicit URL, so NextAuth discovers it");
-  assert.equal(provider.authorization.params.scope, "openid profile email phone");
+  assert.equal(provider.authorization.params.scope, "openid profile email phone national_id");
 });
 
 test("uses explicit endpoints when discovery is unreachable", () => {

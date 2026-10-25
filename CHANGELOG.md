@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.4.0
+
+### Breaking
+
+- **`national_id` is requested by default.** The default scope is now
+  `"openid profile email phone national_id"`. SudaPass is a national identity
+  provider and the national id is what applications integrate with it for, so
+  omitting it made the default useless for the common case and failed quietly.
+  A client that was not granted `national_id` must now narrow the scope
+  explicitly, e.g. `scope: "openid profile email"`, or authorization fails.
+
 ## 0.3.0
 
 First release meant for use outside the project it was written for.
