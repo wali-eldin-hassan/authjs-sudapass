@@ -1,0 +1,64 @@
+{
+  "name": "next-auth-sudapass",
+  "version": "0.3.0",
+  "description": "SudaPass (Sudan national identity) OIDC provider for NextAuth v5",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "dev": "tsup src/index.ts --format esm,cjs --dts --watch",
+    "test": "npm run build && node --test test/provider.test.js",
+    "prepublishOnly": "npm test"
+  },
+  "peerDependencies": {
+    "next-auth": "^5.0.0-beta.0"
+  },
+  "devDependencies": {
+    "next-auth": "^5.0.0-beta.29",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.3"
+  },
+  "author": "Wali Eldin Hassan <creaspo6@gmail.com>",
+  "keywords": [
+    "next-auth",
+    "nextauth",
+    "oidc",
+    "oauth",
+    "sudapass",
+    "sudan",
+    "authentication",
+    "nextjs"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wali-eldin-hassan/next-auth-sudapass.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wali-eldin-hassan/next-auth-sudapass/issues"
+  },
+  "homepage": "https://github.com/wali-eldin-hassan/next-auth-sudapass#readme",
+  "engines": {
+    "node": ">=18"
+  },
+  "sideEffects": false
+}
